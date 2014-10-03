@@ -15,6 +15,6 @@ test "Can compile", ->
   Appjangle.require c.bundleLib,
     (ex, BundleCompiler) ->
       if (ex)
-        ok false, ""
+        ok false, "Encountered exception: "+ex.exception
       ok true
       start()<!-- one.end -->
