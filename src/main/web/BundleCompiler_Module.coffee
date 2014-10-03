@@ -1,4 +1,5 @@
-<!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr1/n -->BundleCompiler_Module = (cb) ->
+<!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr1/n -->
+BundleCompiler_Module = (cb) ->
   cmp = {}
   
   c = {}
@@ -24,8 +25,6 @@
     b.nodes.push(moduleFactory)
     
     b.nodes.push(moduleFactory.select(c.creationScript))
-    
-    cb null, b
   
   cb null, cmp
   
