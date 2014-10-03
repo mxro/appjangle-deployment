@@ -13,6 +13,22 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<build>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>2.5</version>
+			</extension>
+
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.5</version>
+			</extension>
+		</extensions>
+	</build>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.appjangle.qunit</groupId>
@@ -28,7 +44,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<distributionManagement>
 		<repository>
 			<id>appjangle-releases</id>
