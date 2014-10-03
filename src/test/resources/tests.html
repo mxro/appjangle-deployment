@@ -8,15 +8,15 @@
 <body>
   <div id="qunit"></div>
   <script src="http://code.jquery.com/qunit/qunit-1.10.0.js"></script>
+  <script src="http://appjangle.com/js/v01/appjangle/appjangle.nocache.js"></script>
   <script>
-  test( "The passing test", function() {
-	  ok( 1 == "1", "1 should equal 1" );
+  test( "Engine available", function() {
+	  var session = Nextweb.createSession();
+	  ok( session, "session should be available" );
+	  session.close().get();
 	});
   
-  test( "The failing test", function() {
-	  ok(true, "All ok!");
-	  ok( 2 == "1", "2 should equal 1" );
-	});
+  
   </script>
 </body>
 </html>
