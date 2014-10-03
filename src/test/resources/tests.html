@@ -9,7 +9,9 @@
 <body>
 	<div id="qunit"></div>
 	<script src="http://code.jquery.com/qunit/qunit-1.10.0.js"></script>
-
+	
+	<script src="http://coffeescript.org/extras/coffee-script.js"></script>
+	
 	<script
 		src="http://appjangle.com/js/v01/appjangle/appjangle.nocache.js"></script>
 
@@ -33,16 +35,22 @@
 	<script
 		src="https://dpg7tdol7ltjn.cloudfront.net/356d/libs/20140930-3/Appjangle.requireExternal.min.js"></script>
 
-	<script>
-  test( "Engine available", function() {
-	  var session = Nextweb.createSession();
-	  ok( session, "session should be available" );
-	  session.close().get();
-	});
-  
-  test("Can compile", function() {
-	  
-  });
+	<script type="text/coffeescript">
+test "Engine available", ->
+  session = Nextweb.createSession()
+  ok( session, "session should be available" )
+  session.close().get()
+
+test "Can compile", ->
+  stop()
+
+  Appjangle.require 
+    "http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr/n/7", 
+    (ex, BundleCompiler) ->
+      if (ex) 
+        ok(false, "") 
+	  ok(true)
+	 
   </script>
 </body>
 </html>
