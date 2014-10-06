@@ -10,6 +10,8 @@ c.coffeeScriptModule =
   "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
                      "2014/1/10/n2"
 
+c.aModule = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/module"
+    
 test "Engine available", ->
   session = Nextweb.createSession()
   ok session != null, "Session is available"
@@ -32,6 +34,9 @@ test "Can compile", ->
         session.link(c.coffeeScriptModule))
       
       session.commit().get ->
+        
+        bundle.selectAll(session.link(c.aModule)).get ->
+        
         BundleCompiler.compile bundle, (ex, res) ->
           if (ex)
             ok false, "Exception while compiling: "+ex.exception
