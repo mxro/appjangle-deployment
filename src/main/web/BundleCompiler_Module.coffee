@@ -12,7 +12,7 @@ BundleCompiler_Module = (cb) ->
   
   cmp.compile = (node, b, cb) ->
     for k,v of c
-      c[k] = node.session().link v
+      c[k] = node.getSession().link v
     
     b.nodes.push(node)
     
