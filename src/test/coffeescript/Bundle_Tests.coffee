@@ -18,7 +18,7 @@ test "Can compile", ->
   Appjangle.require c.bundleLib,
     (ex, BundleCompiler) ->
       if (ex)
-        ok false, "Encountered exception: "+ex.exception
+        ok false, "Encountered exception when loading bundle: "+ex.exception
         return
       
       server = AppjangleJs.startServer()
@@ -31,9 +31,13 @@ test "Can compile", ->
       session.commit().get ->
         BundleCompiler.compiler bundle, (ex, res) ->
           if (ex)
-            ok false, ""
+            ok false, "Exception while compiling: "+ex.exception
+            return
             
           console.log res
+          
+          ok true, "Compilation successful"
+          start()
       
       
-      start()<!-- one.end -->
+      <!-- one.end -->
