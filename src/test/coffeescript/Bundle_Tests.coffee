@@ -7,13 +7,7 @@ c.bundleLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
     "/2014/10/3/sr/n/r/2014/10/3/sr/n/7"
 
 c.genLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
-    "/2014/10/3/sr/n/r/2014/10/3/sr2/n/7"
-  
-c.coffeeScriptModule =
-  "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
-                     "2014/1/10/n2"
-
-    
+    "/2014/10/3/sr/n/r/2014/10/3/sr2/n/7"  
     
 c.aModule = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/module"
     
@@ -73,7 +67,11 @@ testTemplate (nodes) ->
                   start())
   
 test "Compile Bundle for CoffeeScript editor module", ->
-  testTemplate [session.link c.coffeeScriptModule]
+  coffeeScriptModule =
+    "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
+                     "2014/1/10/n2"
+  testTemplate [session.link coffeeScriptModule]
       
-      
+test "Compile Bundle for Stream editor", ->
+  testTemplate
       <!-- one.end -->
