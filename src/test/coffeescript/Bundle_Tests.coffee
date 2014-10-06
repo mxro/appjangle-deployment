@@ -35,8 +35,8 @@ testTemplate (nodes) ->
       session = Nextweb.createSession()
       
       bundle = session.seed(server)
-      bundle.append(
-        session.link(c.coffeeScriptModule))
+      for node in nodes
+        bundle.append node
       
       session.commit().get ->
         
@@ -45,7 +45,7 @@ testTemplate (nodes) ->
             ok false, "Exception while compiling: "+ex.exception
             return
 
-          ok true, "Compilation successful."
+          ok true, "Compilation of nodes "+ nodes+"successful."
           
           ok res.nodes.length > 2, "Found sufficient nodes: "+
             res.nodes.length
@@ -72,7 +72,7 @@ testTemplate (nodes) ->
                   session.close().get()
                   start())
   
-test "Can compile", ->
+test "Compile Bundle for Coffee", ->
   
       
       
