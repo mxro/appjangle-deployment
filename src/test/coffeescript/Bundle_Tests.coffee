@@ -35,7 +35,8 @@ test "Can compile", ->
       
       session.commit().get ->
         
-        bundle.selectAll(session.link(c.aModule)).get ->
+        bundle.selectAll(session.link(c.aModule)).get (nodes) ->
+          console.log nodes.nodes()
         
         BundleCompiler.compile bundle, (ex, res) ->
           if (ex)
