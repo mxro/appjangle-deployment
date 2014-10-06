@@ -3,7 +3,7 @@
 
 
 test "Engine available", ->
-  session = Nextweb.createSession()
+  session = App.createSession()
   ok session != null, "Session is available"
   session.close().get()
 
@@ -40,7 +40,7 @@ testTemplate = (uris) ->
             ok false, "Exception while compiling: "+ex.exception
             return
 
-          ok true, "Compilation of nodes "+ nodes+"successful."
+          ok true, "Compilation of nodes "+ uris+"successful."
           
           ok res.nodes.length > 2, "Found sufficient nodes: "+
             res.nodes.length
