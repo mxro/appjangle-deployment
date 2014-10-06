@@ -90,12 +90,12 @@ BundleCompiler = (cb) ->
     cb null, b
   
   priv.mergeBundles = (bundles) ->
-    mergedBundle = createBundle()
+    mergedBundle = priv.createBundle()
     for argument in bundles
       mergedBundle.libraries = mergedBundle.libraries.concat(argument.libraries)
       mergedBundle.nodes = mergedBundle.nodes.concat(argument.nodes)
       mergedBundle.stylesheets =
-        mergedBundle.stylesheets.contact(argument.stylesheets)
+        mergedBundle.stylesheets.concat(argument.stylesheets)
  
     mergedBundle
   
