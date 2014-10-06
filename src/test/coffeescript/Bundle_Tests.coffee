@@ -1,5 +1,5 @@
-<!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr3/n -->#if window.localStorage
-#  window.localStorage.clear()
+<!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr3/n -->if window.localStorage
+  window.localStorage.clear()
 
 c = {}
 
