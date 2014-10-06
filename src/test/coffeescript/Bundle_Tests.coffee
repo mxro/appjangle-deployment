@@ -30,7 +30,7 @@ testTemplate = (uris) ->
       session = Nextweb.createSession()
       
       bundle = session.seed(server)
-      for node in nodes
+      for uri in uris
         bundle.append session.link uri
       
       session.commit().get ->
