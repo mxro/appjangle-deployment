@@ -10,18 +10,19 @@ BundleJsGenerator = (cb) ->
 
     params = [].concat(nodes)
 
-    # onFailure
-    params.push cb
     
     # on Success
     params.push () ->
-      console.log 'resolved'
       res = []
       for node in arguments
         res.push node.uri()
       
       cb null, res
-      
+    
+    
+    # onFailure
+    params.push cb
+    
     session.getAll(params)
   
   priv.createLinksArray = (nodeLinks) ->
