@@ -17,7 +17,7 @@ BundleJsGenerator = (cb) ->
     params.push () ->
       res = []
       for node in arguments
-        res.push node.uri
+        res.push node.uri()
       
       cb null, res
       
