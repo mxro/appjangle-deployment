@@ -61,9 +61,9 @@ test "Can compile", ->
                 return
             
               ok true, "Generation successful."
-            
+              console.log js
               Bundle = eval(js)
-              
+              window.B = Bundle
               ok true, "Evaluated sucessfully."
               
               Bundle (ex, b) ->

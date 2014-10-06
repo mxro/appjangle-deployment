@@ -61,9 +61,9 @@ BundleJsGenerator = (cb) ->
       js += "     params.push(cb);\n" # onFailure
       js += "     session.getAll(params);\n"
       js += "  };\n"
-      js += "  cb(null, b)\n
-      js += "};\n
-      js += "Bundle;\n
+      js += "  cb(null, b)\n"
+      js += "};\n"
+      js += "Bundle;\n"
     
       cb null, js
 
