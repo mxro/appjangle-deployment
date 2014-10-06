@@ -64,10 +64,13 @@ test "Can compile", ->
             
               Bundle = eval(js)
               
-              Bundle.preload (ex, )
+              ok true, "Evaluated sucessfully"
+              
+              Bundle.preload (ex, nodes) ->
+                ok true, "Preload su"
             
           
-              start()
+                start()
       
       
       <!-- one.end -->
