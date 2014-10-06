@@ -41,9 +41,6 @@ test "Can compile", ->
       
       session.commit().get ->
         
-        bundle.selectAll(session.link(c.aModule)).get (nodes) ->
-          console.log nodes.uris()
-        
         BundleCompiler.compile bundle, (ex, res) ->
           if (ex)
             ok false, "Exception while compiling: "+ex.exception

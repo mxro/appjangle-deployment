@@ -5,7 +5,7 @@ BundleJsGenerator = (cb) ->
   priv = {}
   
   priv.resolveNodes (nodes, cb) ->
-    
+    console.log 'try'
     session = nodes[0].getSession()
 
     params = [].concat(nodes)
@@ -15,6 +15,7 @@ BundleJsGenerator = (cb) ->
     
     # on Success
     params.push () ->
+      console.log 'resolved'
       res = []
       for node in arguments
         res.push node.uri()
