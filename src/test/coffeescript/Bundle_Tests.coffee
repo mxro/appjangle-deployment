@@ -26,7 +26,8 @@ test "Can compile", ->
   stop()
 
   Appjangle.require c.bundleLib,
-    (ex, BundleCompiler) ->
+    c.genLib
+    (ex, BundleCompiler, JsGen) ->
       if (ex)
         ok false, "Encountered exception when loading bundle: "+ex.exception
         return
@@ -47,10 +48,12 @@ test "Can compile", ->
           if (ex)
             ok false, "Exception while compiling: "+ex.exception
             return
-            
+
+          ok true, "Compilation successful."
+          
+          ok nodes.nodes.length > 2, "Found d"
           
           
-          ok true, "Compilation successful"
           start()
       
       
