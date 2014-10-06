@@ -51,8 +51,13 @@ test "Can compile", ->
 
           ok true, "Compilation successful."
           
-          ok nodes.nodes.length > 2, "Found d"
+          ok nodes.nodes.length > 2, "Found sufficient nodes: "+
+            node.nodes.lenghth
           
+          JsGen.generate res, (ex, js) ->
+            if (ex)
+              ok false, "Exception durin"
+            
           
           start()
       
