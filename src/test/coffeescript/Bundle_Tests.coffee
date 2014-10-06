@@ -60,14 +60,14 @@ test "Can compile", ->
                   " "+ex.exception
                 return
             
-              ok true, "Generation successful"
+              ok true, "Generation successful."
             
               Bundle = eval(js)
               
-              ok true, "Evaluated sucessfully"
+              ok true, "Evaluated sucessfully."
               
               Bundle.preload (ex, nodes) ->
-                ok true, "Preload su"
+                ok true, "Preload successful."
             
           
                 start()
