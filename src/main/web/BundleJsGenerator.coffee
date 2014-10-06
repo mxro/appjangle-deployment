@@ -1,7 +1,7 @@
 <!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr2/n -->
 BundleJsGenerator = (cb) ->
   bg = {}
-  
+  console.log 'define'
   priv = {}
   
   priv.resolveNodes (nodes, cb) ->
@@ -35,7 +35,7 @@ BundleJsGenerator = (cb) ->
     
     js
     
-  console.log 'define'
+ 
   bg.generate = (bundle, cb) ->
     console.log 'here'
     ops = []
