@@ -29,7 +29,7 @@ test "Can compile", ->
         session.link(c.coffeeScriptModule))
       
       session.commit().get ->
-        BundleCompiler.compiler bundle, (ex, res) ->
+        BundleCompiler.compile bundle, (ex, res) ->
           if (ex)
             ok false, "Exception while compiling: "+ex.exception
             return
