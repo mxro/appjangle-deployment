@@ -47,7 +47,7 @@ BundleCompiler = (cb) ->
         if (ex)
           cb(ex)
           return
-        console.log 'compile module'
+
         CMP.compile moduleNode, priv.createBundle(), cb
   
   priv.compileModules = (bundleNode, cb) ->
@@ -59,15 +59,15 @@ BundleCompiler = (cb) ->
     qry.get (modules) ->
       ops = []
       console.log 'found modules '+modules.uris()
-      for module in modules
-        ops.push (cb) -> priv.compileModule module, cb
+      for module in modules.nodes()
+        ops.push (cb) ->
+          priv.compileModule module, cb
       
       async.parallel ops, (ex, res) ->
         if (ex)
           cb ex
           return
-        console.log 'found modules bundles '
-        console.log res
+        
         cb null, priv.mergeBundles res
       
   
@@ -79,7 +79,7 @@ BundleCompiler = (cb) ->
     
     qry.get (bundles) ->
       ops = []
-      for bundle in bundles
+      for bundle in bundles.nodes()
         ops.push (cb) -> priv.compileBundle(bundle, cb)
       
       async.parallel ops, (ex, res) ->
