@@ -34,7 +34,7 @@ test "Can compile", ->
         session.link(c.coffeeScriptModule))
       
       session.commit().get ->
-        
+        console.log bundle.get().uri()
         bundle.selectAll(session.link(c.aModule)).get (nodes) ->
           console.log nodes.uris()
         
