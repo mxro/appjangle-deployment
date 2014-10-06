@@ -74,7 +74,9 @@ test "Compile Bundle for CoffeeScript editor module", ->
   testTemplate [session.link coffeeScriptModule]
       
 test "Compile Bundle for Stream editor, Factory and Tools", ->
-  streamEditor
+  streamEditor = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n5"
+  factory = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n6"
+  tools = "http://slicnet.com/mxrogm/mxrogm/data/stream/2014/3/21/n1"
   
-  testTemplate
+  testTemplate [session]
       <!-- one.end -->
