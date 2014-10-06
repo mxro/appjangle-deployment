@@ -22,7 +22,7 @@ test "Engine available", ->
   ok session != null, "Session is available"
   session.close().get()
 
-test "Can compile", ->
+testTemplate (nodes) ->
   stop()
 
   Appjangle.require c.bundleLib,
@@ -71,6 +71,9 @@ test "Can compile", ->
             
                   session.close().get()
                   start())
+  
+test "Can compile", ->
+  
       
       
       <!-- one.end -->
