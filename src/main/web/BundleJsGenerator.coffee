@@ -1,10 +1,10 @@
 <!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr2/n -->
 BundleJsGenerator = (cb) ->
   bg = {}
-  console.log 'define'
+
   priv = {}
   
-  priv.resolveNodes (nodes, cb) ->
+  priv.resolveNodes = (nodes, cb) ->
     console.log 'try'
     session = nodes[0].getSession()
 
@@ -42,7 +42,7 @@ BundleJsGenerator = (cb) ->
     
     ops.push (cb) -> priv.resolveNodes bundle.nodes, cb
     
-    aysnc.parallel ops, (ex, res) ->
+    async.parallel ops, (ex, res) ->
       if (ex)
         cb(ex)
         return
