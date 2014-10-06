@@ -51,8 +51,10 @@ test "Can compile", ->
             res.nodes.length
           
           Appjangle.require c.genLib, (ex, JsGen) ->
-          
+            ok true, "Generator loaded"
+            console.log JsGen
             JsGen.generate res, (ex, js) ->
+              
               if (ex)
                 ok false, "Exception during JS generation. "+ex.exception
                 return
