@@ -7,7 +7,7 @@ test "Engine available", ->
   ok session != null, "Session is available"
   session.close().get()
 
-testTemplate = (l) ->
+testTemplate = (uris) ->
   stop()
   
   c = {}
@@ -31,7 +31,7 @@ testTemplate = (l) ->
       
       bundle = session.seed(server)
       for node in nodes
-        bundle.append node
+        bundle.append session.link uri
       
       session.commit().get ->
         
