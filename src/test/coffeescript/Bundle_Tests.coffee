@@ -51,15 +51,20 @@ test "Can compile", ->
 
           ok true, "Compilation successful."
           
-          ok nodes.nodes.length > 2, "Found sufficient nodes: "+
+          ok res.nodes.length > 2, "Found sufficient nodes: "+
             node.nodes.lenghth
           
           JsGen.generate res, (ex, js) ->
             if (ex)
-              ok false, "Exception durin"
+              ok false, "Exception during JS generation. "+ex.exception
+              return
+            
+            ok true, "Generation successful"
+            
+            console.log js
             
           
-          start()
+            start()
       
       
       <!-- one.end -->
