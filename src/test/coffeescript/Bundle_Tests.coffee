@@ -66,11 +66,13 @@ test "Can compile", ->
               
               ok true, "Evaluated sucessfully."
               
-              Bundle.preload (ex, nodes) ->
-                ok true, "Preload successful."
+              Bundle (ex, b) ->
+
+                b.preload (ex, nodes) ->
+                  ok true, "Preload successful."
             
           
-                start()
+                  start()
       
       
       <!-- one.end -->
