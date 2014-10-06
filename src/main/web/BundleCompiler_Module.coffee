@@ -25,6 +25,8 @@ BundleCompiler_Module = (cb) ->
     b.nodes.push(moduleFactory)
     
     b.nodes.push(moduleFactory.select(c.creationScript))
+    
+    cb null, bundle
   
   cb null, cmp
   
