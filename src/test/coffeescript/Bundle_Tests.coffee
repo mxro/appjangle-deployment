@@ -7,7 +7,7 @@ c.bundleLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
     "/2014/10/3/sr/n/r/2014/10/3/sr/n/7"
 
 c.genLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
-    "/2014/10/3/sr/n/r/2014/10/3/sr1/n/7"
+    "/2014/10/3/sr/n/r/2014/10/3/sr2/n/7"
   
 c.coffeeScriptModule =
   "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
