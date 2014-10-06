@@ -7,7 +7,7 @@ test "Engine available", ->
   ok session != null, "Session is available"
   session.close().get()
 
-testTemplate = (nodes) ->
+testTemplate = (l) ->
   stop()
   
   c = {}
@@ -71,14 +71,14 @@ test "Compile Bundle for CoffeeScript editor module", ->
   coffeeScriptModule =
     "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
                      "2014/1/10/n2"
-  testTemplate [session.link coffeeScriptModule]
+  testTemplate [coffeeScriptModule]
       
 test "Compile Bundle for Stream editor, Factory and Tools", ->
   streamEditor = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n5"
   factory = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n6"
   tools = "http://slicnet.com/mxrogm/mxrogm/data/stream/2014/3/21/n1"
   
-  testTemplate [session.link streamEditor,
-               session.link factory,
-               session.link tools]
+  testTemplate [streamEditor,
+               factory,
+               tools]
       <!-- one.end -->
