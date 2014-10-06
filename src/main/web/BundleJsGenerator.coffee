@@ -37,7 +37,7 @@ BundleJsGenerator = (cb) ->
     
   
   bg.generate = (bundle, cb) ->
-    
+    console.log 'here'
     ops = []
     
     ops.push (cb) -> priv.resolveNodes bundle.nodes, cb

@@ -26,7 +26,7 @@ test "Can compile", ->
   stop()
 
   Appjangle.require c.bundleLib,
-    c.genLib
+    c.genLib,
     (ex, BundleCompiler, JsGen) ->
       if (ex)
         ok false, "Encountered exception when loading bundle: "+ex.exception
