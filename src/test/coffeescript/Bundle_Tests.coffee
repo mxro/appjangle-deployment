@@ -1,9 +1,10 @@
 <!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr3/n -->if window.localStorage
   window.localStorage.clear()
 
+notest = 
 
 test "Engine available", ->
-  session = App.createSession()
+  session = AppjangleJs.createSession()
   ok session != null, "Session is available"
   session.close().get()
 
