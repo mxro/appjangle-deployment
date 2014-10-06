@@ -55,12 +55,12 @@ BundleJsGenerator = (cb) ->
       js += "  var b = {};"
       js += "  b.preload = function(session, cb) {"
       js += "     var params = "+priv.createLinksArray(nodes)+";"
-      js += "     params.push(cb);" # onFailure
       js += "     params.push(function() {"
       js += "       cb(null, arguments);"
       js += "     });"
+      js += "     params.push(cb);" # onFailure
       js += "     session.getAll(params);"
-      js += "  }"
+      js += "  };"
       js += "  cb(null, b);"
       js += "};"
       js += "Bundle;"

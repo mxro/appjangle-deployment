@@ -62,7 +62,9 @@ test "Can compile", ->
             
               ok true, "Generation successful"
             
-              console.log js
+              Bundle = eval(js)
+              
+              Bundle.preload (ex, )
             
           
               start()
