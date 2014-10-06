@@ -107,11 +107,6 @@ BundleCompiler = (cb) ->
   bc.compile = (bundleNode, cb) ->
     
     priv.compileBundle bundleNode, cb
-  
-  bc.generateJs = (bundle, cb) ->
-    Appjangle.require c.jsGenerator, (ex, JSGEN) ->
-      JSGEN.generateJs bundle, (ex, js) ->
-        cb(ex, js)
     
   
   cb null, bc
