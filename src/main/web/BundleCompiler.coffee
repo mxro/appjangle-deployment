@@ -47,7 +47,7 @@ BundleCompiler = (cb) ->
         if (ex)
           cb(ex)
           return
-          
+        console.log 'compile module'  
         CMP.compile moduleNode, priv.createBundle(), cb
   
   priv.compileModules = (bundleNode, cb) ->
