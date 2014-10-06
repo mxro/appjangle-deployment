@@ -1,16 +1,7 @@
 <!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr3/n -->if window.localStorage
   window.localStorage.clear()
 
-c = {}
 
-c.bundleLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
-    "/2014/10/3/sr/n/r/2014/10/3/sr/n/7"
-
-c.genLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
-    "/2014/10/3/sr/n/r/2014/10/3/sr2/n/7"  
-    
-c.aModule = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/module"
-    
 test "Engine available", ->
   session = Nextweb.createSession()
   ok session != null, "Session is available"
@@ -18,7 +9,17 @@ test "Engine available", ->
 
 testTemplate (nodes) ->
   stop()
+  
+  c = {}
 
+  c.bundleLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
+    "/2014/10/3/sr/n/r/2014/10/3/sr/n/7"
+
+  c.genLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
+    "/2014/10/3/sr/n/r/2014/10/3/sr2/n/7"
+    
+  c.aModule = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/module"
+  
   Appjangle.require c.bundleLib,
     (ex, BundleCompiler) ->
       if (ex)
@@ -72,6 +73,8 @@ test "Compile Bundle for CoffeeScript editor module", ->
                      "2014/1/10/n2"
   testTemplate [session.link coffeeScriptModule]
       
-test "Compile Bundle for Stream editor", ->
+test "Compile Bundle for Stream editor, Factory and Tools", ->
+  streamEditor
+  
   testTemplate
       <!-- one.end -->
