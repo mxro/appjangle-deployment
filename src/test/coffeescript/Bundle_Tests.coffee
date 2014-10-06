@@ -29,7 +29,7 @@ test "Can compile", ->
       server = AppjangleJs.startServer()
       session = Nextweb.createSession()
       
-      bundle = session.seed(server)
+      bundle = session.seed()
       bundle.append(
         session.link(c.coffeeScriptModule))
       
