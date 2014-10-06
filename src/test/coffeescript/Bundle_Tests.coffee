@@ -52,7 +52,7 @@ test "Can compile", ->
           ok true, "Compilation successful."
           
           ok res.nodes.length > 2, "Found sufficient nodes: "+
-            node.nodes.lenghth
+            res.nodes.length
           
           JsGen.generate res, (ex, js) ->
             if (ex)
