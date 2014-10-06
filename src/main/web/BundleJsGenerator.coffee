@@ -51,19 +51,19 @@ BundleJsGenerator = (cb) ->
       nodes = res[0]
       
       js = ""
-      js += "var Bundle = function(cb) {"
-      js += "  var b = {};"
-      js += "  b.preload = function(session, cb) {"
-      js += "     var params = "+priv.createLinksArray(nodes)+";"
-      js += "     params.push(function() {"
-      js += "       cb(null, arguments);"
-      js += "     });"
-      js += "     params.push(cb);" # onFailure
-      js += "     session.getAll(params);"
-      js += "  };"
-      js += "  cb(null, b);"
-      js += "};"
-      js += "Bundle;"
+      js += "var Bundle = function(cb) {\n"
+      js += "  var b = {};\n"
+      js += "  b.preload = function(session, cb) {\n"
+      js += "     var params = "+priv.createLinksArray(nodes)+";\n"
+      js += "     params.push(function() {\n"
+      js += "       cb(null, arguments);\n"
+      js += "     });\n"
+      js += "     params.push(cb);\n" # onFailure
+      js += "     session.getAll(params);\n"
+      js += "  };\n"
+      js += "  cb(null, b)\n
+      js += "};\n
+      js += "Bundle;\n
     
       cb null, js
 
