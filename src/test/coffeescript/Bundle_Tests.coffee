@@ -78,5 +78,7 @@ test "Compile Bundle for Stream editor, Factory and Tools", ->
   factory = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n6"
   tools = "http://slicnet.com/mxrogm/mxrogm/data/stream/2014/3/21/n1"
   
-  testTemplate [session]
+  testTemplate [session.link streamEditor,
+               session.link factory,
+               session.link tools]
       <!-- one.end -->
