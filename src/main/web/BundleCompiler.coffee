@@ -52,7 +52,7 @@ BundleCompiler = (cb) ->
   
   priv.compileModules = (bundleNode, cb) ->
     
-    qry = bundleNode.selectAll(bundle.getSession().link(c.aModule))
+    qry = bundleNode.selectAll(bundleNode.getSession().link(c.aModule))
     
     qry.catchExceptions(cb)
     
