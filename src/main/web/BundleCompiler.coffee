@@ -83,7 +83,7 @@ BundleCompiler = (cb) ->
   priv.compileSimpleDependencies = (bundleNode, cb) ->
     b = priv.createBundle()
     
-    for uri in simpleDependencies
+    for uri in c.simpleDependencies
       type = bundleNode.session().link(uri)
       b.nodes.push bundleNode.select(type)
       
