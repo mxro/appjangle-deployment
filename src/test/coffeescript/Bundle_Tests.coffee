@@ -6,6 +6,7 @@ notest = ->
 test "Engine available", ->
   session = AppjangleJs.createSession()
   ok session != null, "Session is available"
+  
   session.close().get()
 
 testTemplate = (uris) ->
