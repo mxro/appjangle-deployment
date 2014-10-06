@@ -66,10 +66,10 @@ test "Can compile", ->
               
               Bundle((ex, b) ->
 
-                b.preload (ex, nodes) ->
-                  ok true, "Preload successful."
+                b.preload session, (ex, nodes) ->
+                  ok true, "Preload successful. "+nodes
             
-          
+                  session.close().get()
                   start())
       
       
