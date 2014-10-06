@@ -3,7 +3,7 @@ BundleCompiler = (cb) ->
   bc = {}
   
   c = {}
-  c.aBundle = ""
+  c.aBundle = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/6/sr/n"
   c.aModule = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/module"
   c.moduleCompiler =
     "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
