@@ -7,7 +7,7 @@ test "Engine available", ->
   ok session != null, "Session is available"
   session.close().get()
 
-testTemplate (nodes) ->
+testTemplate = (nodes) ->
   stop()
   
   c = {}
