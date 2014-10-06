@@ -72,8 +72,8 @@ testTemplate (nodes) ->
                   session.close().get()
                   start())
   
-test "Compile Bundle for Coffee", ->
-  
+test "Compile Bundle for CoffeeScript editor module", ->
+  testTemplate [session.link c.coffeeScriptModule]
       
       
       <!-- one.end -->
