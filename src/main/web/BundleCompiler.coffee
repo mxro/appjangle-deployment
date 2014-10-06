@@ -58,6 +58,7 @@ BundleCompiler = (cb) ->
     
     qry.get (modules) ->
       ops = []
+      console.log 'found modules '+modules.uris()
       for module in modules
         ops.push (cb) -> priv.compileModule module, cb
       
