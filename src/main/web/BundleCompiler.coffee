@@ -58,10 +58,9 @@ BundleCompiler = (cb) ->
     
     qry.get (modules) ->
       ops = []
-      console.log 'found modules '+modules.uris()
+
       for module in modules.nodes()
-        ops.push (cb) ->
-          priv.compileModule module, cb
+        ops.push (cb) -> priv.compileModule module, cb
       
       async.parallel ops, (ex, res) ->
         if (ex)
