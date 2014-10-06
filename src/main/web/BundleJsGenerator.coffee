@@ -6,7 +6,7 @@ BundleJsGenerator = (cb) ->
   
   priv.resolveNodes (nodes, cb) ->
     
-    session = nodes[0].session()
+    session = nodes[0].getSession()
 
     params = [].concat(nodes)
 
