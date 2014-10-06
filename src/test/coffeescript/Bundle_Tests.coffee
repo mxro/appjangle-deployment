@@ -56,7 +56,8 @@ test "Can compile", ->
             JsGen.generate res, (ex, js) ->
               
               if (ex)
-                ok false, "Exception during JS generation. "+ex.exception
+                ok false, "Exception during JS generation. "+ex+
+                  " "+ex.exception
                 return
             
               ok true, "Generation successful"
