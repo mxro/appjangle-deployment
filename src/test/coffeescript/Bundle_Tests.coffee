@@ -61,13 +61,13 @@ test "Can compile", ->
             
               ok true, "Generation successful."
               Bundle = eval(js)
-              window.B = Bundle
+              
               ok true, "Evaluated sucessfully."
               
               Bundle((ex, b) ->
 
                 b.preload session, (ex, nodes) ->
-                  ok true, "Preload successful. "+nodes
+                  ok true, "Preload successful. Loaded: "+nodes.length
             
                   session.close().get()
                   start())
