@@ -65,7 +65,7 @@ BundleCompiler = (cb) ->
         if (ex)
           cb ex
           return
-        console.log 'merged bundles '
+        console.log 'found modules bundles '
         console.log res
         cb null, priv.mergeBundles res
       
