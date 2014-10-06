@@ -52,7 +52,6 @@ test "Can compile", ->
           
           Appjangle.require c.genLib, (ex, JsGen) ->
             ok true, "Generator loaded"
-            console.log JsGen
             JsGen.generate res, (ex, js) ->
               
               if (ex)
@@ -66,13 +65,13 @@ test "Can compile", ->
               window.B = Bundle
               ok true, "Evaluated sucessfully."
               
-              Bundle (ex, b) ->
+              Bundle((ex, b) ->
 
                 b.preload (ex, nodes) ->
                   ok true, "Preload successful."
             
           
-                  start()
+                  start())
       
       
       <!-- one.end -->
