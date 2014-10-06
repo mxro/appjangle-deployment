@@ -29,12 +29,12 @@ test "Can compile", ->
       server = AppjangleJs.startServer()
       session = Nextweb.createSession()
       
-      bundle = session.seed()
+      bundle = session.seed(server)
       bundle.append(
         session.link(c.coffeeScriptModule))
       
       session.commit().get ->
-        console.log bundle.get().uri()
+        
         bundle.selectAll(session.link(c.aModule)).get (nodes) ->
           console.log nodes.uris()
         
