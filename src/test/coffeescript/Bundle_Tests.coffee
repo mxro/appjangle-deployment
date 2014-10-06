@@ -26,8 +26,7 @@ test "Can compile", ->
   stop()
 
   Appjangle.require c.bundleLib,
-    c.genLib,
-    (ex, BundleCompiler, JsGen) ->
+    (ex, BundleCompiler) ->
       if (ex)
         ok false, "Encountered exception when loading bundle: "+ex.exception
         return
@@ -51,17 +50,19 @@ test "Can compile", ->
           ok res.nodes.length > 2, "Found sufficient nodes: "+
             res.nodes.length
           
-          JsGen.generate res, (ex, js) ->
-            if (ex)
-              ok false, "Exception during JS generation. "+ex.exception
-              return
+          Appjangle.require c.genLib, (ex, JsGen) ->
+          
+            JsGen.generate res, (ex, js) ->
+              if (ex)
+                ok false, "Exception during JS generation. "+ex.exception
+                return
             
-            ok true, "Generation successful"
+              ok true, "Generation successful"
             
-            console.log js
+              console.log js
             
           
-            start()
+              start()
       
       
       <!-- one.end -->
