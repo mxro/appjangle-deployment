@@ -6,10 +6,15 @@ c = {}
 c.bundleLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
     "/2014/10/3/sr/n/r/2014/10/3/sr/n/7"
 
+c.genLib = "http://slicnet.com/mxrogm/mxrogm/apps/stream/r"+
+    "/2014/10/3/sr/n/r/2014/10/3/sr1/n/7"
+  
 c.coffeeScriptModule =
   "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
                      "2014/1/10/n2"
 
+    
+    
 c.aModule = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/module"
     
 test "Engine available", ->
@@ -43,7 +48,7 @@ test "Can compile", ->
             ok false, "Exception while compiling: "+ex.exception
             return
             
-          console.log res.nodes
+          
           
           ok true, "Compilation successful"
           start()

@@ -35,7 +35,7 @@ BundleJsGenerator = (cb) ->
     js
     
   
-  bg.generateJs = (bundle, cb) ->
+  bg.generate = (bundle, cb) ->
     
     ops = []
     
