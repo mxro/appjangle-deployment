@@ -62,6 +62,10 @@ BundleCompiler = (cb) ->
         ops.push (cb) -> priv.compileModule module, cb
       
       async.parallel ops, (ex, res) ->
+        if (ex)
+          cb ex
+          return
+          
         cb null, priv.mergeBundles res
       
   
