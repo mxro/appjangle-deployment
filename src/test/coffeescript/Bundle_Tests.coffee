@@ -37,7 +37,7 @@ test "Can compile", ->
             ok false, "Exception while compiling: "+ex.exception
             return
             
-          console.log res
+          console.log res.nodes()
           
           ok true, "Compilation successful"
           start()
