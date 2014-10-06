@@ -69,13 +69,13 @@ testTemplate = (uris) ->
                   session.close().get()
                   start())
   
-notest "Compile Bundle for CoffeeScript editor module", ->
+test "Compile Bundle for CoffeeScript editor module", ->
   coffeeScriptModule =
     "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
                      "2014/1/10/n2"
   testTemplate [coffeeScriptModule]
       
-notest "Compile Bundle for Stream editor, Factory and Tools", ->
+test "Compile Bundle for Stream editor, Factory and Tools", ->
   streamEditor = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n5"
   factory = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n6"
   tools = "http://slicnet.com/mxrogm/mxrogm/data/stream/2014/3/21/n1"
