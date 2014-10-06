@@ -1,7 +1,7 @@
 <!-- one.download http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/3/sr3/n -->if window.localStorage
   window.localStorage.clear()
 
-notest = 
+notest = ->
 
 test "Engine available", ->
   session = AppjangleJs.createSession()
@@ -68,13 +68,13 @@ testTemplate = (uris) ->
                   session.close().get()
                   start())
   
-test "Compile Bundle for CoffeeScript editor module", ->
+notest "Compile Bundle for CoffeeScript editor module", ->
   coffeeScriptModule =
     "http://slicnet.com/mxrogm/mxrogm/data/stream/"+
                      "2014/1/10/n2"
   testTemplate [coffeeScriptModule]
       
-test "Compile Bundle for Stream editor, Factory and Tools", ->
+notest "Compile Bundle for Stream editor, Factory and Tools", ->
   streamEditor = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n5"
   factory = "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/9/n6"
   tools = "http://slicnet.com/mxrogm/mxrogm/data/stream/2014/3/21/n1"
