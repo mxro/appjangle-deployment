@@ -18,13 +18,13 @@ BundleCompiler_Module = (cb) ->
     
     b.nodes.push(node.select("./compilation"))
     
-    b.nodes.push(node.select(c.label))
+    #b.nodes.push(node.select(c.label))
   
-    moduleFactory = node.select(c.moduleFactory)
+    #moduleFactory = node.select(c.moduleFactory)
     
-    b.nodes.push(moduleFactory)
+    #b.nodes.push(moduleFactory)
     
-    b.nodes.push(moduleFactory.select(c.creationScript))
+    #b.nodes.push(moduleFactory.select(c.creationScript))
     
     cb null, b
   

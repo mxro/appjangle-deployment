@@ -77,6 +77,10 @@ BundleCompiler = (cb) ->
     qry.catchExceptions(cb)
     
     qry.get (bundles) ->
+      if (bundles.size() == 0)
+        cb null, priv.createBundle()
+        return
+
       ops = []
       for bundle in bundles.nodes()
         ops.push (cb) -> priv.compileBundle(bundle, cb)
@@ -88,11 +92,20 @@ BundleCompiler = (cb) ->
   priv.compileSimpleDependencies = (bundleNode, cb) ->
     b = priv.createBundle()
     
+    ops = []
+    
     for uri in c.simpleDependencies
-      type = bundleNode.getSession().link(uri)
-      b.nodes.push bundleNode.select(type)
+      ops.push (cb) ->
+        type = bundleNode.getSession().link(uri)
       
-    cb null, b
+        qry = bundleNode.select(type)
+        qry.catchUndefined -> cb null, null
+        qry.get (node) -> cb null, node
+    
+    async.parallel ops, (ex, res) ->
+      b.nodes = b.nodes.concat res
+      
+      cb null, b
   
   priv.mergeBundles = (bundles) ->
     mergedBundle = priv.createBundle()

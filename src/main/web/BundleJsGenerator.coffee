@@ -5,11 +5,9 @@ BundleJsGenerator = (cb) ->
   priv = {}
   
   priv.resolveNodes = (nodes, cb) ->
-
     session = nodes[0].getSession()
 
     params = [].concat(nodes)
-
     
     # on Success
     params.push () ->
@@ -38,12 +36,13 @@ BundleJsGenerator = (cb) ->
     
  
   bg.generate = (bundle, cb) ->
-
+    
     ops = []
     
     ops.push (cb) -> priv.resolveNodes bundle.nodes, cb
     
     async.parallel ops, (ex, res) ->
+      
       if (ex)
         cb(ex)
         return
@@ -64,7 +63,7 @@ BundleJsGenerator = (cb) ->
       js += "  cb(null, b)\n"
       js += "};\n"
       js += "Bundle;\n"
-    
+      
       cb null, js
 
   cb null, bg
