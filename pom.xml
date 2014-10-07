@@ -32,7 +32,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.appjangle.qunit</groupId>
-			<artifactId>qunit-htmlunit-java</artifactId>
+			<artifactId>java-qunit</artifactId>
 			<version>[0.0.1,)</version>
 			<scope>test</scope>
 		</dependency>
