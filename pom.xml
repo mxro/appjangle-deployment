@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>com.appjangle.qunit</groupId>
 			<artifactId>qunit-htmlunit-java</artifactId>
-			<version>0.0.3</version>
+			<version>[0.0.1,)</version>
 			<scope>test</scope>
 		</dependency>
 
