@@ -13,9 +13,12 @@ BundleCompiler = (cb) ->
   
   c.aScript =
     "http://slicnet.com/mxrogm/mxrogm/data/stream/2014/1/10/n2/node_ge7"
+  c.aType =
+    "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/11/n5"
   
   c.simpleDependencies = [
-    c.aScript
+    c.aScript,
+    c.aType
   ]
   
   
@@ -60,7 +63,7 @@ BundleCompiler = (cb) ->
       ops = []
 
       for module in modules.nodes()
-        ops.push (cb) -> priv.compileModule module, cb
+        do (module) -> ops.push (cb) -> priv.compileModule module, cb
       
       async.parallel ops, (ex, res) ->
         if (ex)
@@ -83,7 +86,7 @@ BundleCompiler = (cb) ->
 
       ops = []
       for bundle in bundles.nodes()
-        ops.push (cb) -> priv.compileBundle(bundle, cb)
+        do (bundle) -> ops.push (cb) -> priv.compileBundle(bundle, cb)
       
       async.parallel ops, (ex, res) ->
         cb null, priv.mergeBundles res
@@ -95,12 +98,13 @@ BundleCompiler = (cb) ->
     ops = []
     
     for uri in c.simpleDependencies
-      ops.push (cb) ->
+      do (uri) -> ops.push (cb) ->
         type = bundleNode.getSession().link(uri)
       
         qry = bundleNode.select(type)
         qry.catchUndefined -> cb null, null
         qry.get (node) -> cb null, node
+    
     
     async.parallel ops, (ex, res) ->
       b.nodes = b.nodes.concat res
