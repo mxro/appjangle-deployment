@@ -3,12 +3,11 @@ BundleCompiler_Module = (cb) ->
   cmp = {}
   
   c = {}
-  
-  c.label = "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/label"
-  c.moduleFactory =
-    "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/modulefactory"
-  c.creationScript =
-    "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/creationscript"
+ 
+  c.importedNodes =
+    "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/importedNodes"
+  c.importedNode =
+    "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/13/n1"
   
   cmp.compile = (node, b, cb) ->
     for k,v of c
@@ -18,15 +17,16 @@ BundleCompiler_Module = (cb) ->
     
     b.nodes.push(node.select("./compilation"))
     
-    #b.nodes.push(node.select(c.label))
-  
-    #moduleFactory = node.select(c.moduleFactory)
+    qry = node.select(c.importedNodes).selectAll(c.importedNode)
     
-    #b.nodes.push(moduleFactory)
+    qry.catchExceptions cb
     
-    #b.nodes.push(moduleFactory.select(c.creationScript))
+    qry.get (nodelist) ->
+      
+      for importedNode in nodelist
+        b.nodes.push importedNode
     
-    cb null, b
+      cb null, b
   
   cb null, cmp
   
