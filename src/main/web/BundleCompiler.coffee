@@ -104,7 +104,7 @@ BundleCompiler = (cb) ->
         qry = bundleNode.selectAll(type)
         qry.catchUndefined -> cb null, null
         qry.get (nodelist) ->
-          console.log 'found '+nodelist.nodes()
+          # console.log 'found '+nodelist.nodes()
           cb null, nodelist.nodes()
     
     
