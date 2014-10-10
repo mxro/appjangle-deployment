@@ -101,9 +101,9 @@ BundleCompiler = (cb) ->
       do (uri) -> ops.push (cb) ->
         type = bundleNode.getSession().link(uri)
       
-        qry = bundleNode.select(type)
+        qry = bundleNode.selectAll(type)
         qry.catchUndefined -> cb null, null
-        qry.get (node) -> cb null, node
+        qry.get (node) -> cb null, node.nodes()
     
     
     async.parallel ops, (ex, res) ->
