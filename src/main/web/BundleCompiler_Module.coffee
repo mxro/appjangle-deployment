@@ -39,9 +39,15 @@ BundleCompiler_Module = (cb) ->
       for importedNode in nodelist.nodes()
         do (importedNode) ->
           ops.push (cb) ->
+            
+            
             bundleCompiler.compile node.session().link(importedNode.value()),
               (ex, b) ->
-                
+                if ex
+                  cb ex
+                  return
+                b.nodes.push importedNode
+                cb null, b
                 
               
       
