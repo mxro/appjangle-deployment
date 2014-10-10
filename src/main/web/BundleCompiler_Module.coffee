@@ -50,13 +50,14 @@ BundleCompiler_Module = (cb) ->
             
             tmpSession.commit().get ->
             
-            bundleCompiler.compile resolvedNode,
-              (ex, b) ->
-                if ex
-                  cb ex
-                  return
-                b.nodes.push resolvedNode
-                cb null, b
+              bundleCompiler.compile tmpBundle,
+                (ex, b) ->
+                  if ex
+                    cb ex
+                    return
+                  b.nodes.push resolvedNode
+                  tmpSession.close().get -> tmpServer.shutdown().get ->
+                    cb null, b
                 
               
       
