@@ -107,7 +107,8 @@ BundleCompiler = (cb) ->
     
     
     async.parallel ops, (ex, res) ->
-      b.nodes = b.nodes.concat res
+      for nodes in res
+        b.nodes = b.nodes.concat nodes
       
       cb null, b
   
