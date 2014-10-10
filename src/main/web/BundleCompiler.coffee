@@ -104,7 +104,6 @@ BundleCompiler = (cb) ->
         qry = bundleNode.selectAll(type)
         qry.catchUndefined -> cb null, null
         qry.get (nodelist) ->
-          # console.log 'found '+nodelist.nodes()
           cb null, nodelist.nodes()
     
     
@@ -131,7 +130,6 @@ BundleCompiler = (cb) ->
     mergedBundle
   
   bc.compile = (bundleNode, cb) ->
-    # console.log 'compile '+bundleNode
     priv.compileBundle bundleNode, cb
   
   bc.utils = {}

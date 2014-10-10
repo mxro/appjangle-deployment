@@ -35,7 +35,7 @@ BundleCompiler_Module = (cb) ->
       
       # The original bundle
       ops.push (cb) -> cb null, b
-      # console.log 'found imported '+nodelist.nodes()
+      
       for importedNode in nodelist.nodes()
         do (importedNode) ->
           ops.push (cb) ->
@@ -52,7 +52,6 @@ BundleCompiler_Module = (cb) ->
               
       
       async.parallel ops, (ex, res) ->
-        # console.log 'found '+res
         cb null, bundleCompiler.utils.mergeBundles res
       
   
