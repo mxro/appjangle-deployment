@@ -124,7 +124,7 @@ BundleCompiler = (cb) ->
     mergedBundle
   
   bc.compile = (bundleNode, cb) ->
-    console.log 'compile '+bundleNode
+    # console.log 'compile '+bundleNode
     priv.compileBundle bundleNode, cb
   
   bc.utils = {}
