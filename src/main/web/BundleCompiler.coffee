@@ -98,12 +98,12 @@ BundleCompiler = (cb) ->
     ops = []
     
     for uri in c.simpleDependencies
-      ops.push (cb) -> do (uri) -> 
+      do (uri) -> ops.push (cb) ->
         type = bundleNode.getSession().link(uri)
       
         qry = bundleNode.selectAll(type)
         qry.catchUndefined -> cb null, null
-        qry.get (nodelist) -> 
+        qry.get (nodelist) ->
           console.log 'found '+nodelist.nodes()
           cb null, nodelist.nodes()
     
