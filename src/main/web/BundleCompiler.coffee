@@ -98,7 +98,7 @@ BundleCompiler = (cb) ->
     ops = []
     
     for uri in c.simpleDependencies
-      do (uri) -> ops.push (cb) ->
+      ops.push (cb) -> do (uri) -> 
         type = bundleNode.getSession().link(uri)
       
         qry = bundleNode.selectAll(type)
