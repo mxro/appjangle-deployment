@@ -103,10 +103,16 @@ BundleCompiler = (cb) ->
       
         qry = bundleNode.selectAll(type)
         qry.catchUndefined -> cb null, null
-        qry.get (nodelist) -> cb null, nodelist.nodes()
+        qry.get (nodelist) -> 
+          console.log 'found '+nodelist.nodes()
+          cb null, nodelist.nodes()
     
     
     async.parallel ops, (ex, res) ->
+      if ex
+        cb ex
+        return
+      
       for nodes in res
         b.nodes = b.nodes.concat nodes
       
