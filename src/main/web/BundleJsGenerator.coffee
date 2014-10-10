@@ -23,6 +23,13 @@ BundleJsGenerator = (cb) ->
     
     session.getAll(params)
   
+  removeDuplicates = (ar) ->
+    if ar.length == 0
+      return []  
+    res = {}
+    res[ar[key]] = ar[key] for key in [0..ar.length-1]
+  value for key, value of res
+  
   priv.createLinksArray = (nodeLinks) ->
     
     js = "["
