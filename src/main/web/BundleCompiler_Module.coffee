@@ -39,7 +39,11 @@ BundleCompiler_Module = (cb) ->
       for importedNode in nodelist.nodes()
         do (importedNode) ->
           ops.push (cb) ->
-            bundleCompiler.compile node.session().link(importedNode.value()), cb
+            bundleCompiler.compile node.session().link(importedNode.value()),
+              (ex, b) ->
+                
+                
+              
       
       async.parallel ops, (ex, res) ->
         # console.log 'found '+res
