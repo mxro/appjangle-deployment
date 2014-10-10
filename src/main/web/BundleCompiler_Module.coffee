@@ -8,8 +8,10 @@ BundleCompiler_Module = (cb) ->
     "https://u1.linnk.it/qc8sbw/usr/apps/textsync/upload/importedNodes"
   c.importedNode =
     "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/13/n1"
+  c.nodeAddress =
+    "http://slicnet.com/mxrogm/mxrogm/data/stream/2013/12/13/n3"
   
-  cmp.compile = (node, b, cb) ->
+  cmp.compile = (node, b, bundleCompiler, cb) ->
     for k,v of c
       c[k] = node.getSession().link v
     
@@ -17,16 +19,32 @@ BundleCompiler_Module = (cb) ->
     
     b.nodes.push(node.select("./compilation"))
     
-    qry = node.select(c.importedNodes).selectAll(c.importedNode)
+    qry = node.select(c.importedNodes)
+              .selectAll(c.importedNode)
+              .select(c.nodeAddress)
     
     qry.catchExceptions cb
     
     qry.get (nodelist) ->
       
-      for importedNode in nodelist
-        b.nodes.push importedNode
-    
-      cb null, b
+      ops = []
+      
+      if nodelist.size() == 0
+        cb null, b
+        return
+      
+      # The original bundle
+      ops.push (cb) -> cb null, b
+      # console.log 'found imported '+nodelist.nodes()
+      for importedNode in nodelist.nodes()
+        do (importedNode) ->
+          ops.push (cb) ->
+            bundleCompiler.compile node.session().link(importedNode.value()), cb
+      
+      async.parallel ops, (ex, res) ->
+        # console.log 'found '+res
+        cb null, bundleCompiler.utils.mergeBundles res
+      
   
   cb null, cmp
   

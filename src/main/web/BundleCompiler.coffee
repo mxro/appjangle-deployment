@@ -51,7 +51,7 @@ BundleCompiler = (cb) ->
           cb(ex)
           return
 
-        CMP.compile moduleNode, priv.createBundle(), cb
+        CMP.compile moduleNode, priv.createBundle(), bc, cb
   
   priv.compileModules = (bundleNode, cb) ->
     
@@ -114,6 +114,8 @@ BundleCompiler = (cb) ->
   priv.mergeBundles = (bundles) ->
     mergedBundle = priv.createBundle()
     for argument in bundles
+      if (argument == null)
+        continue
       mergedBundle.libraries = mergedBundle.libraries.concat(argument.libraries)
       mergedBundle.nodes = mergedBundle.nodes.concat(argument.nodes)
       mergedBundle.stylesheets =
@@ -124,7 +126,10 @@ BundleCompiler = (cb) ->
   bc.compile = (bundleNode, cb) ->
     
     priv.compileBundle bundleNode, cb
-    
+  
+  bc.utils = {}
+  
+  bc.utils.mergeBundles = priv.mergeBundles
   
   cb null, bc
 BundleCompiler<!-- one.end -->
