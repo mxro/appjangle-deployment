@@ -41,7 +41,14 @@ BundleCompiler_Module = (cb) ->
           ops.push (cb) ->
             resolvedNode = node.session().link(importedNode.value())
             
-            tmpServeAppjangleJs.startServer()
+            tmpServer = AppjangleJs.startServer()
+            
+            tmpSession = AppjangleJs.createSession()
+            
+            tmpBundle = tmpSession.seed(tmpServer)
+            tmpBundle.append resolvedNode
+            
+            tmpSession.commit().get ->
             
             bundleCompiler.compile resolvedNode,
               (ex, b) ->
