@@ -120,7 +120,7 @@ BundleCompiler = (cb) ->
   priv.mergeBundles = (bundles) ->
     mergedBundle = priv.createBundle()
     for argument in bundles
-      if (argument == null)
+      if (!argument)
         continue
       mergedBundle.libraries = mergedBundle.libraries.concat(argument.libraries)
       mergedBundle.nodes = mergedBundle.nodes.concat(argument.nodes)
