@@ -103,7 +103,7 @@ BundleCompiler = (cb) ->
       
         qry = bundleNode.selectAll(type)
         qry.catchUndefined -> cb null, null
-        qry.get (node) -> cb null, node.nodes()
+        qry.get (nodelist) -> cb null, nodelist.nodes()
     
     
     async.parallel ops, (ex, res) ->
