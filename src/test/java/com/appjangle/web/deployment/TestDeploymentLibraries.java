@@ -8,7 +8,7 @@ public class TestDeploymentLibraries {
 
 	@Test
 	public void test() {
-		QUnit.run(this, "qunit_compile.html");
+		QUnit.run("http://slicnet.com/mxrogm/mxrogm/apps/stream/r/2014/10/3/sr/n/r/2014/10/6/sr/n.value.html");
 	}
 	
 }
